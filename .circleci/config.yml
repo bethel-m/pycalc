@@ -17,7 +17,8 @@ jobs:
           command: |
             pip3 install pipenv
             pipenv shell
-            pipenv install -r requirements.txt
+            ls -a 
+            echo pipenv install -r requirements.txt
       - run:
           name: run tests
           command: |
