@@ -1,0 +1,29 @@
+# python circleci 2.0 config file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.10
+    
+    working_directory: ~/repo
+
+    steps:
+      # obtain repo from github
+      - checkout
+
+      # create virtual env and install dependencies
+      - run:
+          name: install dependencies
+          command: |
+            pip3 install pipenv
+            pipenv shell
+            pipenv install -r requirements.txt
+      - run:
+          name: run tests
+          command: |
+            flake8 --exclude=venv* --statistics
+            pytest -v --cov=calculator
+
+            
+        
+
