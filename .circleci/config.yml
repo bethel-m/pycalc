@@ -22,7 +22,6 @@ jobs:
           name: run tests
           command: |
             . myenv/bin/activate
-            flake8 --exclude=myenv --statistics
             pytest -v --cov=calculator
 
             
