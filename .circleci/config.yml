@@ -16,12 +16,12 @@ jobs:
           name: install dependencies
           command: |
             python3 -m venv myenv 
-            . myvenv/bin/activate
+            . myenv/bin/activate
             pip install -r requirements.txt
       - run:
           name: run tests
           command: |
-            . myvenv/bin/activate
+            . myenv/bin/activate
             flake8 --exclude=myenv --statistics
             pytest -v --cov=calculator
 
